@@ -23,4 +23,4 @@ Route::apiResource('headcount', HeadCountController::class);
 
 Route::get('/filter', [\App\Http\Controllers\API\HeadCountController::class, 'filter']);
 
-// Route::put('/update/{id}', [\App\Http\Controllers\API\UpdateController::class, 'update']);
+Route::put('/headcount/{hid}', [HeadCountController::class, 'update']);

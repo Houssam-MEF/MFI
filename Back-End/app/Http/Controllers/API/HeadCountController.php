@@ -65,13 +65,13 @@ class HeadCountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id_)
+    public function update(Request $request, string $hid)
     {
-        $agent = Headcount::where('id_', $id_)->first();
+        $agent = Headcount::where('id_',$hid)->first();
 
         if ($agent){
 
-        // $agent->id_ = $request->input('id_');
+        $agent->id_ = $request->input('id_');
         $agent->matricule = $request->input('matricule');
         $agent->highlight = $request->input('highlight');
         $agent->statut = $request->input('statut');
