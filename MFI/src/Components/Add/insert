@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+
+#insert {
+    display: flex;
+    background-image: url("/public/images/4.png");
+    opacity: 0.9;
+    background-repeat:no-repeat;
+    background-size: cover;
+    width: 90%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input , .form-group select {
+    padding: 10px 0;
+    font-size: large;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid rgb(59, 59, 194);
+    border-radius: 5px;
+    background: transparent;
+    outline: none;
+    color: rgb(255, 255, 255);
+}
+
+.form-group label {
+    position: absolute;
+    padding: 7px 0;
+    text-transform: uppercase;
+    pointer-events: none ;
+    left: 25px;
+    top: 20px;
+    letter-spacing: 1.5px;
+    color: rgb(214, 213, 213);
+    text-shadow: 0px 0px 1px rgb(56, 56, 56);
+    font-size: large;
+    transition: .5s;
+    font-weight: bold;    
+}
+
+label {
+    text-shadow: 0px 0px 1px rgb(255, 255, 255);
+    color: rgb(214, 213, 213);
+    letter-spacing: 1.5px;
+}
+
+.form-group option {
+    color: rgb(15, 12, 12);
+}
+
+.form-group input:focus ~ label , .form-group input:valid ~ label, .form-group select:valid ~ label, #id_ select:focus ~ label {
+    left: 25px;
+    top: 0px;
+    font-size: small;
+    transition: .5s ;
+}
+
+#submit {
+    border: 2px solid;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 8px 3px rgb(11, 103, 223);
+    transition: .3s;
+}
+
+#submit:hover {
+    box-shadow: 0px 0px 8px 7px rgb(11, 103, 223);
+    background-color: rgb(5, 99, 241);
+    
+}
+

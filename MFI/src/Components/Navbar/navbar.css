@@ -1,0 +1,27 @@
+
+
+
+/* img {
+    width: 200px;
+    height: auto;
+    margin: 0px 20px 0px 5px;
+} */
+li {
+   width: calc(100% / 4);
+   margin: 0px 2px ;
+   /* height: auto; */
+}
+
+#link {
+    background-color: #9e8e12b0;
+    
+    &:hover {
+        background-color: #918211fb;        
+    }
+}
+
+body {
+    background-image: url("public/images/1.png");
+    background-size: 100%;
+    
+}
