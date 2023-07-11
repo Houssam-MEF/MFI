@@ -69,6 +69,14 @@ class HeadCountController extends Controller
         //
     }
 
+    public function showDeleteForm($id)
+{
+    $agent = Headcount::findOrFail($id);
+
+    return view('delete', ['agent' => $agent]);
+}
+
+
 
     public function import ()
     {

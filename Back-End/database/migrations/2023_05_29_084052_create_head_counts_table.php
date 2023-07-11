@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('head_counts', function (Blueprint $table) {
-            $table->increments('count');
-            $table->string('id_');
+            $table->increments('id')->primarykey();
+            $table->string('identifiant');
             $table->string('matricule');
             $table->string('highlight');
             $table->string('statut');

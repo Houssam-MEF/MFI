@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import "./navbar.css"
-import React from 'react'
+import Content from '../../Content.json'
+
 
 export default function Navbar() {
   return (
@@ -15,25 +16,25 @@ export default function Navbar() {
                             <ul className="navbar-nav m-auto col-md-8 ">
                                 <li className="nav-item ">
                                     <Link to="/home" className="btn btn-lg btn-light d-flex justify-content-center" id="link" >
-                                        HeadCount
+                                    {Content["ENG"]["Navbar"]["HeadCount"]}
                                     </Link>
                                 </li>
 
                                 <li className="nav-item  ">
                                     <Link to="/add" className="btn btn-lg btn-light d-flex justify-content-center" id="link" >
-                                        Add
+                                    {Content["ENG"]["Navbar"]["Add"]}
                                     </Link>
                                 </li>
 
                                 <li className="nav-item  ">
                                     <Link to="/filter" className="btn btn-lg btn-light d-flex justify-content-center" id="link" >
-                                        Filter
+                                    {Content["ENG"]["Navbar"]["Filter"]}
                                     </Link>
                                 </li>
 
                                 <li className="nav-item  ">
                                     <Link to="/find" className="btn btn-lg btn-light d-flex justify-content-center" id="link" >
-                                         Find 
+                                    {Content["ENG"]["Navbar"]["Find"]}
                                     </Link >
                                 </li>
 

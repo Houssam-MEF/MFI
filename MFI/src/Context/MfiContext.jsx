@@ -1,38 +1,83 @@
 import axios, { all } from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
+import Content from '../Content.json'
 
 export const MfiContext = createContext();
 
 export default function MfiContextProvider({children}) {
 
-    const [allData, setAllData] = useState([]);
+  const content = Content ;
 
-    const [xjx, setXjx] = useState([]);
+  // Store the Api Respone message 
+  const [message, setMessage] = useState('');
 
-    const [LANG, setLANG] = useState("Line");
+  // Store all the Headcount coming from Api
 
-    // const [addAgent, setAddAgent] = useState({
-    //   id_ : "", matricule:"", highlight:"", 
-    //   statut:"", firstName:"", lastName:"", gender:"", 
-    //   costCenter:"", zone:"", workstationType:"", line:"",
-    //   group:"", contractType:"", startDate:"", firstPeriod:"", secondPeriod:""
-    // });
+  const [allData, setAllData] = useState([]);
     
-    useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/api/headcount`)
-        .then(response => {setAllData(response.data);})
-        .catch(error => {console.error('Error' , error);});
-    }, []);
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:8080/headcounts`);
+        setAllData(response.data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+    // axios.get(`http://127.0.0.1:8080/headcounts`)
+    // .then(response => {setAllData(response.data);})
+    // .catch(error => {console.error('Error' , error);});
+  }, []);
 
-    useEffect(()=>{
-      const xjxFilter = allData.filter(row => row.line.includes('RHN'));
-      setXjx(xjxFilter);
-    }, [allData]);
+  // Delete 
+
+  const deleteFunc = (id)=>{
+    let person = allData.find(data => data.ID === id);
+    console.log(person);
+    if (confirm('Are you sure you want to delete' + person)){
+
+        axios.delete(`http://127.0.0.1:8080/headcounts/${id}`)
+        .then(()=>{
+          console.log("Success");
+        })
+        .catch((err)=>{
+          console.log("Error" + err)
+        });
+      }
+      };
+
+  const [xjx, setXjx] = useState([]);
+
+  const [newAgent, setNewAgent] = useState({
+    identifiant : "",
+    matricule : "",
+    highlight:"",
+    statut:"",
+    firstName:"",
+    lastName:"",
+    gender:"",
+    costCenter:"",
+    zone:"",
+    workstationType:"",
+    line:"",
+    group:"",
+    contractType:"",
+    startDate:"",
+    firstPeriod:"",
+    secondPeriod:""
+  });
+    
+    
+  useEffect(()=>{
+    const xjxFilter = allData.filter(row => row.line.includes('RHN'));
+    setXjx(xjxFilter);
+  }, [allData]);
 
     // const [headCount, setHeadCount] = useState();
 
   return (
-    <MfiContext.Provider value={{allData, xjx, LANG, setLANG}}>
+    <MfiContext.Provider value={{content, message, setMessage, allData, newAgent, setNewAgent, xjx, deleteFunc}}>
         {children}
     </MfiContext.Provider>
   )

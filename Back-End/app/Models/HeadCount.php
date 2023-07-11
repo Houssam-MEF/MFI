@@ -9,8 +9,15 @@ class HeadCount extends Model
 {
     use HasFactory;
 
+    protected $table = 'head_counts';
+
+    // protected $guarded = [];
+
+    protected $primaryKey = 'ID';
+
     protected $fillable = [
-        'id_',
+        'ID',
+        'identifiant',
         'matricule',
         'highlight',
         'statut',

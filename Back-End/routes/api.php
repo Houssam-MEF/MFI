@@ -19,8 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route::middleware('cors')->apiResource('headcount', HeadCountController::class);
+
 Route::apiResource('headcount', HeadCountController::class);
+
 
 Route::get('/filter', [\App\Http\Controllers\API\HeadCountController::class, 'filter']);
 
-// Route::put('/update/{id}', [\App\Http\Controllers\API\UpdateController::class, 'update']);

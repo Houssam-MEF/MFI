@@ -1,0 +1,12 @@
+#home {
+    /* display: flex; */
+    border: 2px solid;
+    /* height: 200px; */
+    overflow-x: scroll;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#allData {
+    /* display: inline-block; */
+}

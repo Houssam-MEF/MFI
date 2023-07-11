@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="container">
-        
+
         <h1>Homepage</h1>
 
         <div class="container mt-5">
@@ -27,6 +28,8 @@
                 @csrf
                 <button type="submit">Truncate Table</button>
             </form>
+
+
         </div>
     </div>
 </body>

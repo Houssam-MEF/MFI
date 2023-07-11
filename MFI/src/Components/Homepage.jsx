@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar/Navbar'
 import Home from './Home/Home'
+import ApiAdd from './Add/ApiAdd'
 
 export default function Homepage() {
   return (
@@ -11,6 +12,9 @@ export default function Homepage() {
       <div id='first-page'>
         <Home />
       </div>
+      {/* <div id='second-page'>
+        <ApiAdd />
+      </div> */}
     <div id='div'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat esse recusandae reiciendis modi facere libero officiis itaque, fugiat voluptas ex, quibusdam obcaecati soluta odio eaque! Obcaecati numquam mollitia sed? Deserunt.
       Deserunt, ratione mollitia adipisci esse praesentium quia velit eius at autem suscipit. Blanditiis voluptatum numquam cupiditate eos culpa reiciendis quia nulla excepturi similique amet, provident voluptates hic explicabo ipsa et!

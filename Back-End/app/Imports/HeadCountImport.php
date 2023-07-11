@@ -41,7 +41,7 @@ class HeadCountImport implements ToModel, WithHeadingRow, WithCalculatedFormulas
             // dd($startDate, $firstPeriod, $secondPeriod);
 
             return new HeadCount([
-                'id_' => $row['id'],
+                'identifiant' => $row['id'],
                 'matricule' => $row['matricule'],
                 'highlight' => $row['highlight'],
                 'statut' => $row['statut'],
