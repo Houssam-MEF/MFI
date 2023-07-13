@@ -18,7 +18,7 @@ export default function MfiContextProvider({children}) {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8080/headcounts`);
+        const response = await axios.get(`http://127.0.0.1:8080/all`);
         setAllData(response.data);
       } catch (e) {
         console.error(e);
@@ -37,7 +37,7 @@ export default function MfiContextProvider({children}) {
     console.log(person);
     if (confirm('Are you sure you want to delete' + person)){
 
-        axios.delete(`http://127.0.0.1:8080/headcounts/${id}`)
+        axios.delete(`http://127.0.0.1:8080/all/${id}`)
         .then(()=>{
           console.log("Success");
         })
