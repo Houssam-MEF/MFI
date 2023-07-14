@@ -1,6 +1,7 @@
 import axios, { all } from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
 import Content from '../Content.json'
+import { Navigate, redirect, useNavigate } from 'react-router';
 
 export const MfiContext = createContext();
 
@@ -18,16 +19,13 @@ export default function MfiContextProvider({children}) {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8080/all`);
+        const response = await axios.get(`http://127.0.0.1:8080`);
         setAllData(response.data);
       } catch (e) {
         console.error(e);
       }
     };
     fetchData();
-    // axios.get(`http://127.0.0.1:8080/headcounts`)
-    // .then(response => {setAllData(response.data);})
-    // .catch(error => {console.error('Error' , error);});
   }, []);
 
   // Delete 
@@ -37,7 +35,7 @@ export default function MfiContextProvider({children}) {
     console.log(person);
     if (confirm('Are you sure you want to delete' + person)){
 
-        axios.delete(`http://127.0.0.1:8080/all/${id}`)
+        axios.delete(`http://127.0.0.1:8080/${id}`)
         .then(()=>{
           console.log("Success");
         })

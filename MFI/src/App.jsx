@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MfiContextProvider from './Context/MfiContext'
 import 'font-awesome/css/font-awesome.min.css'
 import Homepage from './Components/Homepage'
+import LogIn from './Components/Identification/login';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
     <MfiContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Homepage />} />
+          <Route exact path='/' element={<Homepage />} />
+          <Route exact path='/login' element={<LogIn />} />
           {/* <Route path='/home/details' element={<Details data={"toto"}/>} /> */}
         </Routes>
       </BrowserRouter>

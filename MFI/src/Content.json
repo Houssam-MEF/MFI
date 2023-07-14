@@ -9,6 +9,16 @@
             "Find":"Find"
         },
 
+        "Identification":{
+            "Username":"Username :",
+            "Email":"Email",
+            "Password":"Password :",
+            "Forgot Password":"Forgot Password",
+            "Remember Me":"Remember Me",
+            "Log In":"Log In",
+            "Sign Up":"Sign Up"
+        },
+
         "Home":{
             "Contract":"Contract :",
             "Cost Center":"Cost Center :",
