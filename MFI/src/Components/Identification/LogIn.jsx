@@ -12,47 +12,49 @@ export default function Login() {
 
   // const {logIn} = useContext(MfiContext)
 
+  const {login} = useContext(MfiContext)
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [loginResult, setLoginResult] = useState('hady result d fonction');
 
-    const navigate = useNavigate()
 
-    const logIn = async (username, password) => {
-      try {
-        const response = await axios.post(`http://127.0.0.1:8080/login?`, {username, password});
-        const token = response.data.token;
-        if (token) {
-          navigate('/');
-          console.log(token);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
+  const navigate = useNavigate()
 
-  const handleLogin = () => logIn(username, password)
+  const handleLogin = async () => {
+    try {
+      const token = await login(username, password)
+      console.log(token)
+      setLoginResult(token)
+    } catch (err) {
+      setLoginResult(err.message)
+    }
+  }
+
   
 
 
   return (
     <>
     
-    <h1>Login Page</h1>
 
+    <h1>Login Page</h1>
     <div id="insert" className='container bg-light justify-content-center m-auto p-4 row' style={{border:"2px solid"}}>
       <div className="form-row row p-1 col-md-5" id='form'>   
+      {loginResult && <div>{loginResult}</div>}
+
             
         <div className="form-group col-md-12 p-3" id='id_' >
           <label htmlFor="id">{Content["ENG"]["Identification"]["Username"]}</label>
           <input type="text" className=""
-          value={username} onChange={(e)=>setUsername(e.target.value)}/>
+          value={username} onChange={(e)=>setUsername(e.target.value)} />
           </div>
         
         <div className='col-md-1'></div>
         <div className="form-group col-md-12 p-3">
           <label htmlFor="matricule">{Content["ENG"]["Identification"]["Password"]}</label>
           <input type="password" className="" id="matricule"
-          value={password} onChange={(e)=>setPassword(e.target.value)}/>
+          value={password} onChange={(e)=>setPassword(e.target.value)} />
           </div>
 
         <div className='col-md-1'></div>
@@ -60,7 +62,6 @@ export default function Login() {
         <button className="btn btn-primary" onClick={handleLogin}> Primary </button>
 
       </div>
-    <SignUp />
     </div>
 
 

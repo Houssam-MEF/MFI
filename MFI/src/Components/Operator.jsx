@@ -31,6 +31,7 @@ export default function Operator({element}) {
     <>
 
     {/*  */}
+    
     <div id="parent-operator" className="col-md-3 p-3 ">
         <div className="card border-dark border-3 rounded-3" id='card'>
 

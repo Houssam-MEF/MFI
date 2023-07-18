@@ -15,6 +15,25 @@ export default function MfiContextProvider({children}) {
   // Store all the Headcount coming from Api
 
   const [allData, setAllData] = useState([]);
+
+  const login = (username, password) => {
+    return new Promise((resolve, reject) => {
+      axios.post(`http://127.0.0.1:8080/login`, {username, password})
+      .then((response) => {
+        const {data} = response;
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          console.log(data.token)
+          resolve(data.token);
+        } else {
+          console.log(data.msg)
+          // reject (data.msg);
+        }
+      })
+    }) .catch (err => {
+      console.error("Error : ", err)
+    })
+  }
     
   useEffect(()=>{
     const fetchData = async () => {
@@ -75,7 +94,7 @@ export default function MfiContextProvider({children}) {
     // const [headCount, setHeadCount] = useState();
 
   return (
-    <MfiContext.Provider value={{content, message, setMessage, allData, newAgent, setNewAgent, xjx, deleteFunc}}>
+    <MfiContext.Provider value={{content, message, setMessage, login, allData, newAgent, setNewAgent, xjx, deleteFunc}}>
         {children}
     </MfiContext.Provider>
   )

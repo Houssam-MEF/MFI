@@ -1,15 +1,14 @@
 import React from 'react'
 import Navbar from './Navbar/Navbar'
 import Home from './Home/Home'
-import ApiAdd from './Add/ApiAdd'
 
 export default function Homepage() {
   return (
-    <>
+    <div className='container-fluid row' id='homepage'>
       <div className='container-fluid row m-auto d-flex' id="navbar-container">
         <Navbar />
       </div>
-      <div id='first-page'>
+      <div className='container-fluid row d-flex' id='first-page'>
         <Home />
       </div>
       {/* <div id='second-page'>
@@ -57,6 +56,6 @@ export default function Homepage() {
       Incidunt voluptates modi ea vitae totam illum officiis quos molestiae deleniti dolorem dolores porro doloremque minima dolor aut quisquam quasi, accusamus ipsum, atque laudantium. Blanditiis laudantium optio est? Hic, fuga?
       Aperiam vero nostrum sed, qui consequuntur incidunt quibusdam ratione delectus repellendus minima distinctio ut hic eos! Maiores soluta dicta iure quae, quaerat aliquid ullam, molestias praesentium ducimus, placeat minus explicabo.
     </div>
-    </>
+    </div>
   )
 }

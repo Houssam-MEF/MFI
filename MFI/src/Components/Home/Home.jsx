@@ -30,19 +30,16 @@ export default function Home() {
   return (
 
     <>
-    <div className= {`container-fluid row d-flex`} id='home'  >
       <div className='col-md-12 m-auto p-3' id='allData'>
-
         {
           allData ? (                    
-            allData.map(row => <Operator element={row} /> )
+            allData.map(row => <Operator element={row} key={row.ID}/> )
           ) : (
             <tr>Loadin...</tr>
           )
         }
 
       </div>
-    </div>
     </>
   )
 }

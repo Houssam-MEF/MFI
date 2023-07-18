@@ -1,5 +1,5 @@
 #home {
-    /* display: flex; */
+    display: flex;
     border: 2px solid;
     /* height: 200px; */
     overflow-x: scroll;
@@ -9,4 +9,5 @@
 
 #allData {
     /* display: inline-block; */
+    border: 2px solid;
 }
